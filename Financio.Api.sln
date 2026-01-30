@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36915.13 d17.14
+VisualStudioVersion = 17.14.36915.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Api", "src\Financio.Api\Financio.Api.csproj", "{804170A7-81A0-4C84-80B4-2FD6E759E7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Applications", "Financio.Applications\Financio.Applications.csproj", "{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Domain", "Financio.Domain\Financio.Domain.csproj", "{EE2CD493-735C-43B8-A684-1D346F043D70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Infrastructure", "Financio.Infrastructure\Financio.Infrastructure.csproj", "{E31E0177-9B27-4017-ADBF-F99E8903B9EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{804170A7-81A0-4C84-80B4-2FD6E759E7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{804170A7-81A0-4C84-80B4-2FD6E759E7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{804170A7-81A0-4C84-80B4-2FD6E759E7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2CD493-735C-43B8-A684-1D346F043D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2CD493-735C-43B8-A684-1D346F043D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2CD493-735C-43B8-A684-1D346F043D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2CD493-735C-43B8-A684-1D346F043D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E31E0177-9B27-4017-ADBF-F99E8903B9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E31E0177-9B27-4017-ADBF-F99E8903B9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E31E0177-9B27-4017-ADBF-F99E8903B9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E31E0177-9B27-4017-ADBF-F99E8903B9EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
