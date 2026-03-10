@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Financio.Applications\Financio.Applications.csproj" />
-    <ProjectReference Include="..\..\Financio.Infrastructure\Financio.Infrastructure.csproj" />
+    <ProjectReference Include="..\Financio.Applications\Financio.Applications.csproj" />
+    <ProjectReference Include="..\Financio.Infrastructure\Financio.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
