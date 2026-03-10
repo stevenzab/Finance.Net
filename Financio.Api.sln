@@ -5,11 +5,11 @@ VisualStudioVersion = 17.14.36915.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Api", "src\Financio.Api\Financio.Api.csproj", "{804170A7-81A0-4C84-80B4-2FD6E759E7FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Applications", "Financio.Applications\Financio.Applications.csproj", "{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Applications", "src\Financio.Applications\Financio.Applications.csproj", "{7FA56F5D-9F17-41EE-A2CC-91043088CA1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Domain", "Financio.Domain\Financio.Domain.csproj", "{EE2CD493-735C-43B8-A684-1D346F043D70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Domain", "src\Financio.Domain\Financio.Domain.csproj", "{EE2CD493-735C-43B8-A684-1D346F043D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Infrastructure", "Financio.Infrastructure\Financio.Infrastructure.csproj", "{E31E0177-9B27-4017-ADBF-F99E8903B9EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financio.Infrastructure", "src\Financio.Infrastructure\Financio.Infrastructure.csproj", "{E31E0177-9B27-4017-ADBF-F99E8903B9EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
