@@ -7,10 +7,10 @@ namespace Financio.Applications.Services.Transactions
 
     public interface ITransactionService
     {
-        Task<IEnumerable<TransactionDto>> GetAllAsync();
-        Task<TransactionDto> GetByIdAsync(string id);
-        Task<TransactionDto> CreateAsync(TransactionDto transaction);
-        Task<TransactionDto> UpdateAsync(string id, TransactionDto transaction);
-        Task DeleteAsync(string id);
+        Task<IEnumerable<TransactionDto>> GetAllAsync(CancellationToken cancellationToken);
+        Task<TransactionDto> GetByIdAsync(string id, CancellationToken cancellationToken);
+        Task<TransactionDto> CreateAsync(TransactionDto transaction, CancellationToken cancellationToken);
+        Task<TransactionDto> UpdateAsync(string id, TransactionDto transaction, CancellationToken cancellationToken);
+        Task DeleteAsync(string id, CancellationToken cancellationToken);
     }
 }

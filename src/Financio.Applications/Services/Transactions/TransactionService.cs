@@ -16,7 +16,7 @@ namespace Financio.Applications.Services.Transactions
             _dataAccess = dataAccess;
         }
 
-        public async Task<TransactionDto> CreateAsync(TransactionDto dtoSource)
+        public async Task<TransactionDto> CreateAsync(TransactionDto dtoSource, CancellationToken cancellationToken)
         {
             var transaction = new Transaction
             {
@@ -34,11 +34,11 @@ namespace Financio.Applications.Services.Transactions
             return dtoSource;
         } 
 
-        public Task DeleteAsync(string id) => _dataAccess.DeleteAsync(id);
+        public Task DeleteAsync(string id, CancellationToken cancellationToken) => _dataAccess.DeleteAsync(id);
 
-        public async Task<IEnumerable<TransactionDto>> GetAllAsync()
+        public async Task<IEnumerable<TransactionDto>> GetAllAsync(CancellationToken cancellationToken)
         {
-            var getAllTransactions = await _dataAccess.GetAllAsync();
+            var getAllTransactions = await _dataAccess.GetAllAsync(cancellationToken);
 
             var mapToDto = getAllTransactions.Select(x => x.MapToDto()).ToList();
 
@@ -46,16 +46,16 @@ namespace Financio.Applications.Services.Transactions
 
         }
 
-        public async Task<TransactionDto> GetByIdAsync(string id)
+        public async Task<TransactionDto> GetByIdAsync(string id, CancellationToken cancellationToken)
         {
-            var transaction = await _dataAccess.GetByIdAsync(id);
+            var transaction = await _dataAccess.GetByIdAsync(id, cancellationToken);
 
             var mapToDto = transaction.MapToDto();
 
             return mapToDto;
         }
 
-        public async Task<TransactionDto> UpdateAsync(string id, TransactionDto transaction)
+        public async Task<TransactionDto> UpdateAsync(string id, TransactionDto transaction, CancellationToken cancellationToken)
         {
             var updateTransaction = new Transaction
             {

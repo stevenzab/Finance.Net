@@ -1,8 +1,10 @@
 using Financio.Domain.Models;
 using Financio.Infrastructure.Common;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace Financio.Applications.Services.Transactions.DataAccess
@@ -27,16 +29,19 @@ namespace Financio.Applications.Services.Transactions.DataAccess
             await collection.DeleteOneAsync(t => t.Id == id);
         }
 
-        public Task<IEnumerable<Transaction>> GetAllAsync()
+        public async Task<IEnumerable<Transaction>> GetAllAsync(CancellationToken cancellationToken)
         {
-            var items = _baseRepository.AsQueryable<Transaction>().OrderByDescending(t => t.Date).ToList();
-            return Task.FromResult<IEnumerable<Transaction>>(items);
+            return await _baseRepository.AsQueryable<Transaction>()
+                .OrderByDescending(t => t.Date).ToListAsync(cancellationToken);
         }
 
-        public Task<Transaction> GetByIdAsync(string id)
+        public async Task<Transaction> GetByIdAsync(string id, CancellationToken cancellationToken)
         {
-            var item = _baseRepository.AsQueryable<Transaction>().FirstOrDefault(t => t.Id == id);
-            return Task.FromResult(item);
+            return await _baseRepository
+            .GetCollection<Transaction>(typeof(Transaction).Name)
+            .Find(p => p.Id == id)
+            .FirstOrDefaultAsync(cancellationToken);
+
         }
 
         public async Task UpdateAsync(string id, Transaction transaction)

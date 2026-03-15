@@ -19,43 +19,43 @@ namespace Financio.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            var transaction = await _transactionService.GetAllAsync();
+            var transaction = await _transactionService.GetAllAsync(cancellationToken);
 
             return Ok(transaction);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(string id)
+        public async Task<ActionResult> GetById(string id, CancellationToken cancellationToken)
         {
-            var item = await _transactionService.GetByIdAsync(id);
+            var item = await _transactionService.GetByIdAsync(id, cancellationToken);
             if (item == null) return NotFound();
             return Ok(item);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] TransactionDto transaction)
+        public async Task<IActionResult> Create([FromBody] TransactionDto transaction, CancellationToken cancellationToken)
         {
-            await _transactionService.CreateAsync(transaction);
+            await _transactionService.CreateAsync(transaction, cancellationToken);
             return CreatedAtAction(nameof(GetById), new { id = transaction.TransactionId }, transaction);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] TransactionDto transaction)
+        public async Task<IActionResult> Update(string id, [FromBody] TransactionDto transaction, CancellationToken cancellationToken)
         {
-            var existing = await _transactionService.GetByIdAsync(id);
+            var existing = await _transactionService.GetByIdAsync(id, cancellationToken);
             if (existing == null) return NotFound();
-            await _transactionService.UpdateAsync(id, transaction);
+            await _transactionService.UpdateAsync(id, transaction, cancellationToken);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(string id, CancellationToken cancellationToken)
         {
-            var existing = await _transactionService.GetByIdAsync(id);
+            var existing = await _transactionService.GetByIdAsync(id, cancellationToken);
             if (existing == null) return NotFound();
-            await _transactionService.DeleteAsync(id);
+            await _transactionService.DeleteAsync(id, cancellationToken);
             return NoContent();
         }
     }
