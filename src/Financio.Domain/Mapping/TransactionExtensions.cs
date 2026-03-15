@@ -16,6 +16,7 @@ namespace Financio.Domain.Mapping
 
             return new TransactionDto
             {
+                TransactionId = source.Id,
                 Amount = source.Amount,
                 Type = (Financio.Domain.Dto.TransactionType)source.Type,
                 Category = source.Category,
