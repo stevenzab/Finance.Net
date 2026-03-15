@@ -3,6 +3,7 @@ using Financio.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Financio.Domain.Dto;
 
 namespace Financio.Api.Controllers
 {
@@ -18,13 +19,15 @@ namespace Financio.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Transaction>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return await _transactionService.GetAllAsync();
+            var transaction = await _transactionService.GetAllAsync();
+
+            return Ok(transaction);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Transaction>> GetById(string id)
+        public async Task<ActionResult> GetById(string id)
         {
             var item = await _transactionService.GetByIdAsync(id);
             if (item == null) return NotFound();
@@ -32,14 +35,14 @@ namespace Financio.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Transaction transaction)
+        public async Task<IActionResult> Create([FromBody] TransactionDto transaction)
         {
             await _transactionService.CreateAsync(transaction);
-            return CreatedAtAction(nameof(GetById), new { id = transaction.Id }, transaction);
+            return CreatedAtAction(nameof(GetById), new { id = transaction.TransactionId }, transaction);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] Transaction transaction)
+        public async Task<IActionResult> Update(string id, [FromBody] TransactionDto transaction)
         {
             var existing = await _transactionService.GetByIdAsync(id);
             if (existing == null) return NotFound();
