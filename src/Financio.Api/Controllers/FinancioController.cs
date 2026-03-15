@@ -18,7 +18,7 @@ namespace Financio.Api.Controllers
             _transactionService = transactionService;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllTransactions")]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var transaction = await _transactionService.GetAllAsync(cancellationToken);
@@ -26,7 +26,7 @@ namespace Financio.Api.Controllers
             return Ok(transaction);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetById/{id}")]
         public async Task<ActionResult> GetById(string id, CancellationToken cancellationToken)
         {
             var item = await _transactionService.GetByIdAsync(id, cancellationToken);
@@ -34,14 +34,14 @@ namespace Financio.Api.Controllers
             return Ok(item);
         }
 
-        [HttpPost]
+        [HttpPost("AddTransactions")]
         public async Task<IActionResult> Create([FromBody] TransactionDto transaction, CancellationToken cancellationToken)
         {
             await _transactionService.CreateAsync(transaction, cancellationToken);
             return CreatedAtAction(nameof(GetById), new { id = transaction.TransactionId }, transaction);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] TransactionDto transaction, CancellationToken cancellationToken)
         {
             var existing = await _transactionService.GetByIdAsync(id, cancellationToken);
@@ -50,7 +50,7 @@ namespace Financio.Api.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Transaction/{id}")]
         public async Task<IActionResult> Delete(string id, CancellationToken cancellationToken)
         {
             var existing = await _transactionService.GetByIdAsync(id, cancellationToken);
